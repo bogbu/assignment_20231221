@@ -20,11 +20,11 @@ export const AddTodo = async (title : string, date : Date = new Date()) => {
 const parsingDate = (date: Date) => {
     let dateString = formatDate(date);
     if(dateString === formatDate(new Date)) return dateString;
-    else return formatDate(new Date(date.setDate(date.getDate() +1)));
+    else return formatDate(new Date(date.setDate(date.getDate() + 1)));
 }
 export const EditTodo = async (title : string, date : Date = new Date(), done:boolean ,todoId: string) => {
     try {
-        let dateString = parsingDate(date);
+        let dateString = formatDate(new Date(date.setDate(date.getDate() + 1)));
         let todoWithDate = `${title}#${dateString}`;
         const response = await interiorApi.put(`todos/${todoId}`, {
             json : {
