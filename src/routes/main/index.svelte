@@ -90,6 +90,7 @@
             } else if (numClicks === 1) {
                 editTitle(event)
             }
+            list = getTodo();
             // console.log(event)
         }
     };
@@ -154,6 +155,7 @@
             EditTodo(todo, new Date(date), targetDone!, targetId).then(() => {
                 borderColor = "blue";
                 success = "투두 수정이 완료되었습니다.";
+                list = getTodo();
                 resetTarget();
                 return;
             });
